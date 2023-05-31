@@ -1,8 +1,6 @@
 import browser from "webextension-polyfill"
 import { getOptions } from "~/app/options"
 
-const INTERVAL = 60000
-
 interface UnreadCountEntry {
     unreadCount: number
 }
@@ -21,7 +19,7 @@ const buildUrl = (baseUrl: string) => {
     return url
 }
 
-export const refreshBadge = async () => {
+const refreshBadge = async () => {
     const options = await getOptions()
     const url = buildUrl(options.url)
     const response = await fetch(url, {
@@ -33,8 +31,19 @@ export const refreshBadge = async () => {
         const body: UnreadCountEntry[] = await response.json()
         label = unreadCount(body)
     }
-    browser.action.setBadgeText({ text: label })
+
+    // browser.browserAction in manifest v2
+    // browser.action in manifest v3
+    const button = browser.action ?? browser.browserAction
+    button.setBadgeText({ text: label })
 }
 
+// refresh every minute
+browser.alarms.onAlarm.addListener(refreshBadge)
+browser.alarms.create("badge-refresh-timer", { periodInMinutes: 1 })
+
+// refresh at chrome startup
+browser.runtime.onStartup.addListener(refreshBadge)
+
+// refresh at firefox startup
 refreshBadge()
-setInterval(() => refreshBadge(), INTERVAL)

@@ -21,7 +21,7 @@ const browserAction = {
     default_popup: "src/entries/popup/index.html",
 }
 
-const permissions: chrome.runtime.ManifestPermissions[] = ["storage"]
+const permissions: chrome.runtime.ManifestPermissions[] = ["storage", "alarms"]
 
 const ManifestV2: Partial<chrome.runtime.ManifestV2> = {
     ...sharedManifest,

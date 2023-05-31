@@ -1,6 +1,6 @@
 {
     "name": "commafeed-web-extension",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "displayName": "CommaFeed",
     "author": "Athou",
     "description": "CommaFeed browser extension",
