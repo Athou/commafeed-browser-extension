@@ -1,0 +1,37 @@
+{
+    "name": "commafeed-web-extension",
+    "version": "3.0.0",
+    "displayName": "CommaFeed",
+    "author": "Athou",
+    "description": "CommaFeed browser extension",
+    "scripts": {
+        "build": "vite build",
+        "watch": "vite build --watch --mode development --minify false",
+        "dev": "vite",
+        "serve:firefox": "web-ext run --start-url \"about:debugging#/runtime/this-firefox\"  --source-dir ./dist/",
+        "serve:chrome": "web-ext run -t chromium --start-url \"https://example.com\" --source-dir ./dist/"
+    },
+    "devDependencies": {
+        "@samrum/vite-plugin-web-extension": "^4.1.0",
+        "@types/chrome": "^0.0.237",
+        "@types/react": "^18.2.7",
+        "@types/react-dom": "^18.2.4",
+        "@types/webextension-polyfill": "^0.10.0",
+        "@vitejs/plugin-react": "^4.0.0",
+        "typescript": "^5.0.4",
+        "vite": "~4.3.9",
+        "web-ext": "^7.6.2"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.11.0",
+        "@mantine/core": "^6.0.13",
+        "@mantine/form": "^6.0.13",
+        "@mantine/hooks": "^6.0.13",
+        "@mantine/notifications": "^6.0.13",
+        "prettier": "^2.8.8",
+        "react": "^18.2.0",
+        "react-async-hook": "^4.0.0",
+        "react-dom": "^18.2.0",
+        "webextension-polyfill": "^0.10.0"
+    }
+}
