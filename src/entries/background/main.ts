@@ -1,5 +1,5 @@
 import browser from "webextension-polyfill"
-import { getOptions } from "~/app/options"
+import { buildUrl, getOptions } from "~/app/options"
 
 interface UnreadCountEntry {
     unreadCount: number
@@ -10,18 +10,9 @@ const unreadCount = (entries: UnreadCountEntry[]) => {
     return count === 0 ? "" : `${count}`
 }
 
-const buildUrl = (baseUrl: string) => {
-    let url = baseUrl
-    if (url.lastIndexOf("/") !== url.length - 1) {
-        url += "/"
-    }
-    url += "rest/category/unreadCount"
-    return url
-}
-
 const refreshBadge = async () => {
     const options = await getOptions()
-    const url = buildUrl(options.url)
+    const url = buildUrl(options.url, "rest/category/unreadCount")
     const response = await fetch(url, {
         credentials: "include",
     })

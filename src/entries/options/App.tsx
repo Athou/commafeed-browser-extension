@@ -40,6 +40,7 @@ export function App() {
                             <Group mt="xs">
                                 <Radio value="popup" label="Show CommaFeed in a popup" />
                                 <Radio value="open_tab" label="Open CommaFeed in a new tab" />
+                                <Radio value="open_tab_next_unread" label="Open next unread article in a new tab" />
                             </Group>
                         </Radio.Group>
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.1.0]
+
+-   add the option to open the next unread article in a new tab
+
 ## [3.0.2]
 
 -   increase popup height to make sure profile menu is entirely visible when shown

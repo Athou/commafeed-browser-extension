@@ -1,6 +1,6 @@
 import { storage } from "webextension-polyfill"
 
-export type Mode = "popup" | "open_tab"
+export type Mode = "popup" | "open_tab" | "open_tab_next_unread"
 
 export interface Options {
     url: string
@@ -14,4 +14,13 @@ export async function getOptions(): Promise<Options> {
 
 export async function saveOptions(options: Options) {
     return storage.local.set(options)
+}
+
+export const buildUrl = (baseUrl: string, path: string) => {
+    let url = baseUrl
+    if (baseUrl.lastIndexOf("/") !== baseUrl.length - 1) {
+        url += "/"
+    }
+    url += path
+    return url
 }

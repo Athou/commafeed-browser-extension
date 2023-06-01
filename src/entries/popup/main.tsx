@@ -1,17 +1,16 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 import browser from "webextension-polyfill"
-import { getOptions } from "~/app/options"
+import { buildUrl, getOptions } from "~/app/options"
 import "../enableDevHmr"
 import { App } from "./App"
 
 getOptions().then(options => {
     if (options.mode === "open_tab") {
-        browser.tabs.create({ url: options.url })
-
-        // close the popup
-        window.close()
-    } else {
+        createTab(options.url)
+    } else if (options.mode === "open_tab_next_unread") {
+        createTab(buildUrl(options.url, "next"))
+    } else if (options.mode === "popup") {
         ReactDOM.createRoot(document.getElementById("app") as HTMLElement).render(
             <React.StrictMode>
                 <App />
@@ -19,3 +18,10 @@ getOptions().then(options => {
         )
     }
 })
+
+const createTab = (url: string) => {
+    browser.tabs.create({ url })
+
+    // close the popup
+    window.close()
+}
