@@ -17,10 +17,5 @@ export async function saveOptions(options: Options) {
 }
 
 export const buildUrl = (baseUrl: string, path: string) => {
-    let url = baseUrl
-    if (baseUrl.lastIndexOf("/") !== baseUrl.length - 1) {
-        url += "/"
-    }
-    url += path
-    return url
+    return baseUrl.endsWith("/") ? `${baseUrl}${path}` : `${baseUrl}/${path}`
 }
