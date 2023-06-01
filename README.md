@@ -1,29 +1,33 @@
 # CommaFeed browser extension
 
-This is a cross-browser extension that supports all Chromium-based browsers as well as Firefox.
+Cross-browser extension for CommaFeed that supports all Chromium-based browsers as well as Firefox.
 
 ## Commands
 
-To switch between Manifest v2 and Manifest v3 builds, use the MANIFEST_VERSION environment variable defined in `.env`
-
 ### Development
 
-In one terminal,
+In one terminal, run
 
 ```sh
-npm run watch
+npm run watch:firefox
+or
+npm run watch:chrome
 ```
 
-In another terminal,
+In another terminal, run
 
 ```sh
-npm run serve:chrome
-or
 npm run serve:firefox
+or
+npm run serve:chrome
 ```
 
 ### Production
 
+Run
+
 ```sh
-npm run build
+npm run build:firefox
+or
+npm run build:chrome
 ```
