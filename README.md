@@ -2,6 +2,14 @@
 
 Cross-browser extension for CommaFeed that supports all Chromium-based browsers as well as Firefox.
 
+The extension will show an action next to the address bar with the count of your unread articles.
+Clicking the button will either show CommaFeed in a popup or open CommaFeed in a new tab.
+
+## Download
+
+-   Chrome: Pending review by Google
+-   Firefox: https://addons.mozilla.org/en-US/firefox/addon/commafeed/
+
 ## Commands
 
 ### Development
