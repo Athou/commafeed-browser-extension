@@ -11,7 +11,7 @@ Clicking the button will either:
 
 ## Download
 
--   Chrome: Pending review by Google
+-   Chrome: https://chrome.google.com/webstore/detail/commafeed/bpbfpjiciblcfeganojjkfapnllbhdga
 -   Firefox: https://addons.mozilla.org/en-US/firefox/addon/commafeed/
 
 ## Commands
