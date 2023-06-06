@@ -13,6 +13,7 @@ Clicking the button will either:
 
 -   Chrome: https://chrome.google.com/webstore/detail/commafeed/bpbfpjiciblcfeganojjkfapnllbhdga
 -   Firefox: https://addons.mozilla.org/en-US/firefox/addon/commafeed/
+-   Edge: https://microsoftedge.microsoft.com/addons/detail/fljkobbpjeohoiampklfcfennnfahadi
 
 ## Commands
 
