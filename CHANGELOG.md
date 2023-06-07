@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.2.0]
+
+-   add a button in the popup to configure the extension
+-   add a button in the popup to open CommaFeed in a new tab
+
 ## [3.1.0]
 
 -   add the option to open the next unread article in a new tab
