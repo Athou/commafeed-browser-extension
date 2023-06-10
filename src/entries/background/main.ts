@@ -1,4 +1,5 @@
 import browser from "webextension-polyfill"
+import { handleEvent } from "~/app/events"
 import { buildUrl, getOptions } from "~/app/options"
 
 interface UnreadCountEntry {
@@ -38,3 +39,6 @@ browser.runtime.onStartup.addListener(refreshBadge)
 
 // refresh at firefox startup
 refreshBadge()
+
+// listen for messages sent from contentScript
+browser.runtime.onMessage.addListener((data: string) => handleEvent(data))

@@ -9,6 +9,12 @@ const icons = {
 }
 
 const sharedManifest = {
+    content_scripts: [
+        {
+            js: ["src/entries/contentScript/main.tsx"],
+            matches: ["*://*/*"],
+        },
+    ],
     icons,
     options_ui: {
         page: "src/entries/options/index.html",

@@ -9,6 +9,8 @@ Clicking the button will either:
 -   open CommaFeed in a new tab
 -   open next unread article in a new tab
 
+It will also allow opening tabs in the background ("b" keyboard shortcut).
+
 ## Download
 
 -   Chrome: https://chrome.google.com/webstore/detail/commafeed/bpbfpjiciblcfeganojjkfapnllbhdga
