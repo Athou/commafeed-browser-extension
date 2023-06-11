@@ -2,6 +2,13 @@ import browser from "webextension-polyfill"
 import { handleEvent } from "~/app/events"
 import { buildUrl, getOptions } from "~/app/options"
 
+// open options when the extension is installed the first time
+browser.runtime.onInstalled.addListener(e => {
+    if (e.reason === "install") {
+        browser.runtime.openOptionsPage()
+    }
+})
+
 interface UnreadCountEntry {
     unreadCount: number
 }
