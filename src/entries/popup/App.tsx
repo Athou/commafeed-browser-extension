@@ -11,8 +11,10 @@ export function App() {
         const listener = async (event: MessageEvent) => {
             await handleEvent(event.data)
 
-            // close the popup
-            window.close()
+            if (event.data === "open-settings-page" || event.data === "open-app-in-new-tab") {
+                // close the popup
+                window.close()
+            }
         }
         window.addEventListener("message", listener)
         return () => window.removeEventListener("message", listener)

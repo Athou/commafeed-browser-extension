@@ -1,4 +1,5 @@
 import browser from "webextension-polyfill"
+import { setBadgeUnreadCount } from "./badge"
 import { getOptions } from "./options"
 
 export const handleEvent = async (data: string) => {
@@ -11,5 +12,8 @@ export const handleEvent = async (data: string) => {
     } else if (data.startsWith("open-link-in-background-tab:")) {
         const url = data.substring("open-link-in-background-tab:".length)
         browser.tabs.create({ url, active: false })
+    } else if (data.startsWith("set-badge-unread-count:")) {
+        const unreadCount = data.substring("set-badge-unread-count:".length)
+        setBadgeUnreadCount(+unreadCount)
     }
 }
