@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.3.0]
+
+-   let the app update the badge unread count
+-   allow opening tabs in the background with the "b" keyboard shortcut
+-   open options when the extension is installed the first time
+
 ## [3.2.0]
 
 -   add a button in the popup to configure the extension
