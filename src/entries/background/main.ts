@@ -1,4 +1,5 @@
 import browser from "webextension-polyfill"
+import { setBadgeUnreadCount } from "~/app/badge"
 import { handleEvent } from "~/app/events"
 import { buildUrl, getOptions } from "~/app/options"
 
@@ -13,11 +14,6 @@ interface UnreadCountEntry {
     unreadCount: number
 }
 
-const unreadCount = (entries: UnreadCountEntry[]) => {
-    const count = entries.map(e => e.unreadCount).reduce((a, b) => a + b, 0)
-    return count === 0 ? "" : `${count}`
-}
-
 const refreshBadge = async () => {
     const options = await getOptions()
     const url = buildUrl(options.url, "rest/category/unreadCount")
@@ -25,16 +21,12 @@ const refreshBadge = async () => {
         credentials: "include",
     })
 
-    let label = "?"
+    let unreadCount: number | undefined
     if (response.status === 200) {
         const body: UnreadCountEntry[] = await response.json()
-        label = unreadCount(body)
+        unreadCount = body.map(e => e.unreadCount).reduce((a, b) => a + b, 0)
     }
-
-    // browser.browserAction in manifest v2
-    // browser.action in manifest v3
-    const button = browser.action ?? browser.browserAction
-    button.setBadgeText({ text: label })
+    setBadgeUnreadCount(unreadCount)
 }
 
 // refresh every minute
