@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.3.1]
+
+-   give focus to the iframe to make keyboard shortcuts work without requiring an initial click
+
 ## [3.3.0]
 
 -   let the app update the badge unread count
