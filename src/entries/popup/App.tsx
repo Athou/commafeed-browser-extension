@@ -23,7 +23,7 @@ export function App() {
     if (!options.result) return null
     return (
         <main>
-            <iframe title="commafeed" src={options.result?.url} />
+            <iframe title="commafeed" src={options.result?.url} onLoad={e => e.currentTarget.focus()} />
         </main>
     )
 }
