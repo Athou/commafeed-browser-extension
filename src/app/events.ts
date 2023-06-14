@@ -3,6 +3,8 @@ import { setBadgeUnreadCount } from "./badge"
 import { getOptions } from "./options"
 
 export const handleEvent = async (data: string) => {
+    if (typeof data !== "string") return
+
     const options = await getOptions()
 
     if (data === "open-settings-page") {
