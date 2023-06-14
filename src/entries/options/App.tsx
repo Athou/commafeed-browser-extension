@@ -10,9 +10,10 @@ export function App() {
     const form = useForm<Options>()
     const options = useAsync(getOptions, [])
 
+    const { setValues } = form
     useEffect(() => {
-        if (options.result) form.setValues(options.result)
-    }, [form.setValues, options.result])
+        if (options.result) setValues(options.result)
+    }, [setValues, options.result])
 
     const handleSubmit = (options: Options) => {
         saveOptions(options)

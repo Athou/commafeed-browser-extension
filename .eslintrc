@@ -1,0 +1,11 @@
+{
+    "extends": ["eslint:recommended", "react-app", "prettier"],
+    "plugins": ["prettier"],
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "rules": {
+        // make eslint check prettier rules
+        "prettier/prettier": "error"
+    }
+}

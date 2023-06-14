@@ -10,7 +10,8 @@
         "serve:firefox": "cross-env MANIFEST_VERSION=2 web-ext run --start-url \"about:debugging#/runtime/this-firefox\"  --source-dir ./dist/",
         "serve:chrome": "cross-env MANIFEST_VERSION=3 web-ext run -t chromium --start-url \"https://example.com\" --source-dir ./dist/",
         "build:firefox": "cross-env MANIFEST_VERSION=2 vite build",
-        "build:chrome": "cross-env MANIFEST_VERSION=3 vite build"
+        "build:chrome": "cross-env MANIFEST_VERSION=3 vite build",
+        "eslint": "eslint --ext=.js,.jsx,.ts,.tsx src"
     },
     "dependencies": {
         "@emotion/react": "^11.11.0",
@@ -31,6 +32,10 @@
         "@types/webextension-polyfill": "^0.10.0",
         "@vitejs/plugin-react": "^4.0.0",
         "cross-env": "^7.0.3",
+        "eslint": "^8.41.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-config-react-app": "^7.0.1",
+        "eslint-plugin-prettier": "^4.2.1",
         "prettier": "^2.8.8",
         "typescript": "^5.0.4",
         "vite": "~4.3.9",
