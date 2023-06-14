@@ -5,6 +5,10 @@ interface UnreadCountEntry {
     unreadCount: number
 }
 
+// browser.browserAction in manifest v2
+// browser.action in manifest v3
+const button = browser.action ?? browser.browserAction
+
 export const refreshBadgeUnreadCount = async () => {
     const options = await getOptions()
     const url = buildUrl(options.url, "rest/category/unreadCount")
@@ -23,11 +27,19 @@ export const refreshBadgeUnreadCount = async () => {
 export const setBadgeUnreadCount = (count: number | undefined) => {
     let label
     if (count === undefined) label = "?"
-    else if (count === 0) label = ""
+    else if (count <= 0) label = ""
     else label = `${count}`
 
-    // browser.browserAction in manifest v2
-    // browser.action in manifest v3
-    const button = browser.action ?? browser.browserAction
     button.setBadgeText({ text: label })
+}
+
+export const getBadgeUnreadCount = async () => {
+    const text = await button.getBadgeText({})
+    if (text === "?" || text === "") return 0
+    return +text
+}
+
+export const decrementUnreadCount = async () => {
+    const count = await getBadgeUnreadCount()
+    if (count > 0) setBadgeUnreadCount(count - 1)
 }
