@@ -12,14 +12,16 @@ const button = browser.action ?? browser.browserAction
 export const refreshBadgeUnreadCount = async () => {
     const options = await getOptions()
     const url = buildUrl(options.url, "rest/category/unreadCount")
-    const response = await fetch(url, {
-        credentials: "include",
-    })
 
     let unreadCount: number | undefined
-    if (response.status === 200) {
-        const body: UnreadCountEntry[] = await response.json()
-        unreadCount = body.map(e => e.unreadCount).reduce((a, b) => a + b, 0)
+    try {
+        const response = await fetch(url, { credentials: "include" })
+        if (response.status === 200) {
+            const body: UnreadCountEntry[] = await response.json()
+            unreadCount = body.map(e => e.unreadCount).reduce((a, b) => a + b, 0)
+        }
+    } catch (e) {
+        // do nothing
     }
     setBadgeUnreadCount(unreadCount)
 }
