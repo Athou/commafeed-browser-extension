@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.3.2]
+
+-   decrement badge unread count when clicking on the button and the option to open the next unread article is selected
+-   when an error occurs while fetching unread count, display "?" on the badge
+
 ## [3.3.1]
 
 -   give focus to the iframe to make keyboard shortcuts work without requiring an initial click
